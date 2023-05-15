@@ -1,0 +1,17 @@
+<%
+=begin%>
+ <p style="color: green"><%= notice %></p>
+<%
+=end%>
+
+<h1>Relatório</h1>
+
+<%= render @report_day %>
+
+<div>
+  <%= link_to "Editar este Relatório", edit_report_day_path(@report_day) %> |
+  <%= link_to "Voltar para Relatórios Diários", report_days_path %>
+<br>
+<br>
+  <%= button_to "Deletar", @report_day, method: :delete %>
+</div>

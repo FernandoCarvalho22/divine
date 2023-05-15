@@ -1,0 +1,56 @@
+<div  style="margin-left: 20px;">
+  <%= form_with(model: report_month) do |form| %>
+    <% if report_month.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(report_month.errors.count, "error") %> prohibited this report_month from being saved:</h2>
+        <ul>
+          <% report_month.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group col-md-1 ">
+      <%= form.label t('report_month.month') %>
+      <%= form.select :month, options_for_select(@months, @report_month.month),  {include_blank: 'Selecione'},{:autofocus => true, :required => 'true', style: "display: block", class: "form-control" } %>
+    </div>
+    <br>
+    <label>
+      <%= form.label t('report_month.investing') %>
+    </label>
+    <div class="input-group sm-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text">R$</span>
+      </div>
+        <%= form.text_field :investing, autofocus:true, required: true, style: "display: block", class: "form-control-xs"%>
+      <div class="input-group-append">
+        <span class="input-group-text">,00</span>
+      </div>
+    </div>
+    <!--br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_month.expense') %>
+      <%= form.text_field :expense, autofocus:true, required: true, style: "display: block", class: "form-control" %>
+    </div-->
+    <br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_month.entries') %>
+      <%= form.text_field :entries, autofocus:true, required: true, style: "display: block", class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group col-md-4 ">
+      <%= form.label t('report_month.description') %>
+      <%= form.text_area :description, autofocus:true, size: "28x5", style: "display: block", class: "form-control" %>
+    </div>
+    <!--br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_month.profit_month'), style: "display: block", class: "form-control" %>
+      <%= form.text_field :profit_month %>
+    </div-->
+    <br><br>
+    <div class="container" style="width: 1050px" >
+      <%= form.button "Salvar", type: "submit", :class=> "btn btn-success btn-sm" %>
+      <%= link_to "Voltar", report_months_path,  :class => "btn btn-outline-primary  btn-sm" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<%= render 'layouts/topshow', title: 'Cliente' %>
+
+<%= render @customer %>
+<br>
+<div class="col-sm-4">
+  <%= link_to 'Editar', edit_customer_path(@customer), :class => "button btn btn-light btn-sm" %>
+  <%= button_to 'Deletar', @customer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+  <%= link_to 'Voltar', customers_path, :class => "button btn btn-light btn-sm" %>
+  <%= button_to "Deletar", @report_day, method: :delete %>
+
+</div>

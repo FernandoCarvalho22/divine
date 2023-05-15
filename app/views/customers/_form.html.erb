@@ -1,0 +1,44 @@
+<br>
+<div style="margin-left: 20px;">
+  <%= form_with(model: customer) do |form| %>
+    <% if customer.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+        <ul>
+          <% customer.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div class="form-group col-md-4 ">
+        <%= form.label t('customer.name'), style: "display: block" %>
+        <%= form.text_field :name, required:true, class:"form-control" %>
+      </div>
+        <br>
+      <div class="form-group col-md-4 ">
+        <%= form.label t('customer.phone'), style: "display: block" %>
+        <%= form.text_field (:phone), class:"form-control", minlength:11, maxlength:11, placeholder: '(**) #####-####',  required:true %>
+      </div>
+        <br>
+      <div class="form-group col-md-2 ">
+        <%= form.label t('customer.addres'), style: "display: block" %>
+        <%= form.select :addres, options_for_select(@addresses, form.object.addres), {include_blank: 'Selecione'},{:autofocus => true, :required => 'true', class:"form-control"} %>
+      </div>
+        <br>
+      <div class="form-group col-sm-2 ">
+        <%= form.label t('customer.date') %>
+        <%= form.date_field :date, value: @customer.date.try(:to_date).try(:strftime,"%Y-%m-%d"), required: true, style: "display: block", class:"form-control" %>
+      </div>
+        <br>
+      <div class="form-group col-md-4 ">
+        <%= form.label t('customer.description'), style: "display: block" %>
+        <%= form.text_area :description, size: "28x5",class:"form-control" %>
+      </div>
+        <br><br>
+      <div class="container" style="width: 1030px" >
+        <%= form.button "Salvar", type: "submit", :class=> "btn btn-success btn-sm" %>
+        <%= link_to "Voltar", customers_path,  :class => " btn btn-success btn-sm"  %>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,33 @@
+<%= render 'layouts/top', title: 'Relatórios Diário', new_url: new_report_day_path %>
+<div style="margin-left: 10px; margin-right: 10px;">
+  <table class="table table-hover">
+    <thead>
+      <tr style="background: #DCDCDC;">
+        <th>Dia da Semana</th>
+        <th>Data</th>
+        <th>Total Invest. R$</th>
+        <th>Total Entradas R$</th>
+        <th>Anotações</th>
+        <th>Lucro</th>
+        <th>Ações</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @report_days.each do |report_day| %>
+        <tr>
+          <td><%= report_day.weekday %></td>
+          <td><%= report_day.date.to_date.try(:strftime, '%d/%m/%Y') %></td>
+          <td><%= calculo_investimentos(report_day) %></td>
+          <td><%= calculo_entradas(report_day) %></td>
+          <td><%= report_day.description %></td>
+          <td><%= calculo_lucro(report_day) %></td>
+          <td><%= link_to 'Editar', edit_report_day_path(report_day), :class => "btn btn-outline-primary  btn-sm" %></td>
+          <td><%= link_btn_delete(report_day) %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

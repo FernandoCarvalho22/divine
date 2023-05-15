@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Divine</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body>
+    <nav class="navbar  navbar-expand-lg  navbar-dark bg-dark"  >
+      <a class="navbar-brand" href="/" style="margin-left: 10px;"> <img src="/img/logo2.jpeg" width="35" height="35" alt="10">
+        <strong>Divino's Artesanais</strong>
+      </a>
+      <% if user_signed_in? %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"><strong>Home</strong></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/customers"><strong>Clientes</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report_days"><strong>Relatório Diário</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report_months"><strong>Relatório Mensal</strong></a>
+          </li>
+        </ul>
+      </div>
+      <%end%>
+    <div>
+      <% if user_signed_in? %>
+        <div  style="margin-right: 10px;">
+          <a style="color: silver">Usuário: <%= current_user.email %></a>
+        <%= link_to 'Conta', edit_user_registration_path, :class => "btn btn-outline-secondary btn-sm" %>
+        <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-sm"  %>
+        </div>
+      <% else %>
+        <div  style="margin-left: 880px;">
+        <%= link_to "Login", new_user_session_path, :class => "btn btn-success btn-sm"  %>
+        <%= link_to "Novo Usuário", new_user_registration_path, :class => "btn btn-outline-secondary btn-sm"  %>
+        </div>
+      <% end %>
+     </div>
+    </nav>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    <%= yield %>
+  </body><br><br>
+    <footer class="footer fixed-bottom" style="text-align: center;" >
+      <nav class="navbar-dark bg-dark">
+        <strong><small><font color="white">Copyright - </strong>  Fernando H.C Rocha Divino's &copy; 2010- <%= Time.now.strftime("%Y") %><small></font>
+      </nav>
+    </div>
+  </div>
+</html>

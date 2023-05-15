@@ -1,0 +1,57 @@
+<div id="<%= dom_id report_day %>">
+  <p>
+    <strong><%=t('report_day.weekday')%></strong>
+    <%= report_day.weekday %>
+  </p>
+
+  <p>
+    <strong><%=t('report_day.date')%></strong>
+    <%= report_day.date.to_date.try(:strftime, '%d/%m/%Y') %>
+  </p>
+
+  <p>
+    <strong><%=t('report_day.cake_invest')%></strong>
+    <%= report_day.cake_invest %>
+  </p>
+
+  <p>
+    <strong><%=t('report_day.bread_invest')%></strong>
+    <%= report_day.bread_invest %>
+  </p>
+
+  <p>
+    <strong><%=t('report_day.investing')%></strong>
+    <%= calculo_investimentos(report_day) %>
+  </p>
+
+  <p>
+    <strong><%=t('report_day.card')%></strong>
+    <%= report_day.card %>
+  </p>
+
+  <p>
+    <strong><%=t('report_day.money')%></strong>
+    <%= report_day.money %>
+  </p>
+
+  <!--p>
+    <strong><%=t('report_day.entries')%></strong>
+    <%= report_day.entries %>
+  </p-->
+
+  <p>
+    <strong><%=t('report_day.expense')%></strong>
+    <%= report_day.expense %>
+  </p>
+
+  <p>
+    <strong><%=t('report_day.description')%></strong>
+    <%= report_day.description %>
+  </p>
+
+  <!--p>
+    <strong><%=t('report_day.profit')%></strong>
+    <%= report_day.profit %>
+  </p-->
+
+</div>

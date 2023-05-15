@@ -1,0 +1,37 @@
+"pt-BR":
+  customer:
+    name: Nome
+    phone: Telefone
+    addres: Região do Cliente
+    date: Data Cadastro
+    description: anotação
+  report_day:
+    report_day: Relatórios Diário
+    weekday: Dia / Local
+    date: Data
+    cake_invest: Compra $ Bolos
+    bread_invest: Compra $ Pães
+    investing: Total Investido
+    card: Valor $ Cartão
+    money: Valor $ Dinheiro / PIX
+    entries: Total Entradas
+    expense: Despesas
+    description: Anotações
+    profit: $ Lucro
+  report_month:
+    report_month: Relatório Mensal
+    investing: Total $ Investido
+    entries: Total $ Entradas
+    expense: Total $ Despesas
+    description: Anotações
+    profit_month: Lucro $
+    month: Mês
+  weekdays:
+    Weekdays: Dias da Semana
+    Monday: Segunda(Parque)
+    Thurday: Terça(Inspire)
+    Wednesday: Quarta(Jandira)
+    Thusday: Quinta(Viva-Mais)
+    Friday: Sexta(Inspire)
+    Saturday: Sábado(Parque)
+

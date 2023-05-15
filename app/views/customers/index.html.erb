@@ -1,0 +1,38 @@
+<%= render 'layouts/top', title: 'Clientes', new_url: new_customer_path %>
+<div style="margin-left: 10px; margin-right: 10px;">
+
+  <table class="table table-hover">
+    <thead>
+      <tr style="background: #DCDCDC;">
+        <th>#</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Endereço</th>
+        <th>Cliente desde</th>
+        <th>Anotações</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <th scope="row"><%= customer.id %></th>
+          <td><%= customer.name %></td>
+          <td><%= formata_telefone(customer.phone) %></td>
+          <td><%= customer.addres %></td>
+          <td><%= customer.date.to_date.try(:strftime, '%d/%m/%Y') %></td>
+          <td><%= customer.description %></td>
+          <td><%= link_to 'Editar', edit_customer_path(customer), :class => "btn btn-outline-primary  btn-sm" %></td>
+          <td><%= link_btn_delete(customer) %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+

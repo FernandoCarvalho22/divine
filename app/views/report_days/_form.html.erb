@@ -1,0 +1,73 @@
+<div style="margin-left: 20px;">
+  <%= form_with(model: report_day) do |form| %>
+    <% if report_day.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(report_day.errors.count, "error") %> prohibited this report_day from being saved:</h2>
+        <ul>
+          <% report_day.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_day.weekday') %>
+      <%= form.select :weekday, options_for_select(@weekdays, @report_day.weekday), {include_blank: 'Selecione'},{:autofocus => true, :required => 'true',  style: "display: block", class: "form-control"} %>
+    </div>
+    <br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_day.date') %>
+      <%= form.date_field :date, value: @report_day.date.try(:to_date).try(:strftime,"%Y-%m-%d") || Time.now.try(:strftime,"%d/%m/%Y"), autofocus: true, required: true, style: "display: block", class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_day.cake_invest') %>
+      <%= form.text_field :cake_invest, autofocus: true, required: true, style: "display: block", class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_day.bread_invest') %>
+      <%= form.text_field :bread_invest, autofocus: true, required: true, style: "display: block", class: "form-control" %>
+    </div>
+    <!--br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t(:investing), style: "display: block", class: "form-control" %>
+      <%= form.text_field :investing %>
+    </div-->
+    <br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_day.expense') %>
+      <%= form.text_field :expense, autofocus: true, required: true, style: "display: block", class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_day.card') %>
+      <%= form.text_field :card, autofocus: true, required: true, style: "display: block",class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t('report_day.money') %>
+      <%= form.text_field :money, autofocus: true, required: true, style: "display: block", class: "form-control" %>
+    </div>
+    <!--br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t(:entries), style: "display: block", class: "form-control" %>
+      <%= form.text_field :entries %>
+    </div-->
+    <br>
+    <div class="form-group col-md-4 ">
+      <%= form.label t('report_day.description') %>
+      <%= form.text_area :description, autofocus: true, size: "28x5", style: "display: block", class: "form-control" %>
+    </div>
+      <!--br>
+    <div class="form-group col-md-2 ">
+      <%= form.label t(:profit), style: "display: block" %>
+      <%= form.text_field :profit %>
+    </div-->
+    <br><br>
+    <div class="container" style="width: 1030px" >
+      <%= form.button "Salvar", type: "submit", :class=> "btn btn-success btn-sm"%>
+      <%= link_to "Voltar", report_days_path,  :class => "btn btn-outline-primary  btn-sm"%>
+    </div>
+  <% end %>
+</div>

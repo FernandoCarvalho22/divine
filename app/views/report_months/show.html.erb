@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @report_month %>
+
+<div>
+  <%= link_to "Editar Relatório", edit_report_month_path(@report_month) %> |
+  <%= link_to "Voltar para Relatório Mensal", report_months_path %>
+<br>
+<br>
+  <%= button_to "Deletar", @report_month, method: :delete %>
+</div>

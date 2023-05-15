@@ -1,0 +1,2 @@
+class ReportDay < ApplicationRecord
+end

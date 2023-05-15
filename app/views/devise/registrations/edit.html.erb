@@ -1,0 +1,54 @@
+<style>
+.sidebar {
+ display: inline;
+ width: 20%;
+ float: right;
+}
+</style>
+<br>
+<div class="row wrapper white-bg page-heading" style="margin-left: 20px;">
+<h2>Editar Dados </h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<br>
+  <div class="form-row">
+    <div class="form-group col-md-4 ">
+      <strong><%= f.label :email %></strong><br/>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    <div class="form-group col-md-4">
+      <strong><%= f.label :current_password %></strong><br/>
+      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+    </div>
+  </div>
+  <br>
+  <div class="form-row">
+    <div class="form-group col-md-4 ">
+      <strong><%= f.label :password %></strong> <br>
+         <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+         <% if @minimum_password_length %>
+           <em><small> <%=@minimum_password_length %> caracteres no mínimo</small></em>
+         <% end %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4 ">
+      <strong><%= f.label :password_confirmation %></strong> <br/>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+    </div>
+  </div>
+  <br>
+  <div class="container" style="width: 1030px" >
+    <%= f.submit "Atualizar", :class => "btn btn-success btn-sm" %>
+    <%= link_to "Voltar", root_path,  :class => " btn btn-outline-primary btn-sm"  %>
+  </div>
+<% end %>
+</div>
+
+<div class="sidebar">
+  <h6>Apagar Conta</h6>
+  <div><small>Deseja apagar sua conta?</small> <%= button_to "Deletar", registration_path(resource_name), :class => "btn btn-danger btn-sm", data: { confirm: "Are you sure?", turbo_confirm: "Tem certeza que quer apagar sua conta?" }, method: :delete %></div>
+</div>

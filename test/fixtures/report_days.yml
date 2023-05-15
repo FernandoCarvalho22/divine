@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weekday: MyString
+  date: MyString
+  cake_invest: 1.5
+  bread_invest: 1.5
+  investing: 1.5
+  card: 1.5
+  money: 1.5
+  entries: 1.5
+  expense: 1.5
+  description: MyString
+  profit: 1.5
+
+two:
+  weekday: MyString
+  date: MyString
+  cake_invest: 1.5
+  bread_invest: 1.5
+  investing: 1.5
+  card: 1.5
+  money: 1.5
+  entries: 1.5
+  expense: 1.5
+  description: MyString
+  profit: 1.5

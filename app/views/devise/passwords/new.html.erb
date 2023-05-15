@@ -1,0 +1,22 @@
+<br>
+<div class="row wrapper white-bg page-heading" style="margin-left: 30px;">
+  <h2>Esqueceu sua senha?</h2>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-row">
+      <div class="form-group col-md-4 ">
+        <%= f.label :email %><br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+    </div>
+      <div class="row" style="width: 1200px">
+        <em><small>Será enviado instruções para redefinir a senha no seu e-mail<small><em>
+      </div><br>
+        <div class="container" style="width: 1000px" >
+          <%= f.submit "Enviar", :class => "btn btn-success btn-sm" %>
+          <%= link_to "Voltar", root_path,  :class => " btn btn-outline-primary btn-sm"  %>
+      </div>
+    <% end %>
+  <br><br>
+</div>

@@ -1,0 +1,34 @@
+<%= render 'layouts/top', title: 'Relatórios Mensal', new_url: new_report_month_path %>
+<div  style="margin-left: 10px; margin-right: 10px;">
+
+<table class="table table-hover">
+  <thead>
+    <tr style="background: #DCDCDC;">
+      <th>Mês Referência</th>
+      <th>Total Investimento R$</th>
+      <th>Total Entradas R$</th>
+      <th>Anotações</th>
+      <th>Lucro R$</th>
+      <th>Ações</th>
+      <th></th>
+      <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <% @report_months.each do |report_month| %>
+      <tr>
+        <td><%= report_month.month %></td>
+        <td><%= report_month.investing.to_i %></td>
+        <td><%= report_month.entries.to_i %></td>
+        <td><%= report_month.description %></td>
+        <td><%= calculo_lucro_month(report_month) %></td>
+        <td><%= link_to 'Editar', edit_report_month_path(report_month), :class => "btn btn-outline-primary  btn-sm" %></td>
+        <td><%= link_btn_delete(report_month) %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
